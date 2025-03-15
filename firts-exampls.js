@@ -2,6 +2,10 @@ const array1 = ['a', 'b', 'c', 'x'];
 const array2 = ['z', 'y', 'a'];
 
 function containsCommonItem(arr1, arr2) {
+
+    if(arr1.length === 0 || arr2.length === 0) {
+        return false;
+    }
     /*loop throw first array and create object 
     where properties ==== item of object
     */
