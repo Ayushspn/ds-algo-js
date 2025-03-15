@@ -6,3 +6,5 @@ function arrayOperations() {
     console.log(strings);
 }
 arrayOperations();
+
+// static  vs Dynamic array 
