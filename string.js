@@ -12,4 +12,12 @@ function reverseAString(str) {
     return backwards.join('');
 }
 
-console.log(reverseAString("Hello I am Ayush"));
+//console.log(reverseAString("Hello I am Ayush"));
+
+function reverseString2(str) {
+    return str.split('').reverse().join('');
+}
+
+const reverseString3 = str => [...str].reverse().join('');
+
+console.log(reverseString3("Hello I am Ayush"));
