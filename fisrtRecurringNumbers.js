@@ -26,4 +26,4 @@ function firtsRecurringCharacter2(input) { // o(n^2)
 // negative side 
 
 // Unordered 
-// sloe key iteration
+// slow key iteration
