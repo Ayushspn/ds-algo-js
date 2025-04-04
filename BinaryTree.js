@@ -52,4 +52,13 @@ class BinarySerachTree {
         }
         return false;
     }
+
+    remove() {
+        if( ! this.root) {
+            return false;
+        }
+        let currentNode = this.root;
+        let parentNode = null;
+        
+    }
 }
