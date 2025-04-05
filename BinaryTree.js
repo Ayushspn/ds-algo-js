@@ -1,64 +1,58 @@
 class Node {
     constructor(value) {
+        this.valeu = value;
         this.left = null;
         this.right = null;
-        this.value = value
     }
-
 }
-class BinarySerachTree {
-    constructor() {
-        this.root = null;
-    }
 
+
+class BST {
+    constructor() {
+        this.root = null
+    }
     insert(value) {
         const newNode = new Node(value);
-        if (this.root === null) {
+        if (!this.root) {
             this.root = newNode;
-        } else {
-            let currentNode = this.root;
-            while (true) {
-                if (value < currentNode.value) {
-                    if (!currentNode.left) {
-                        currentNode.left = newNode;
-                        return this;
-                    }
-                    currentNode = currentNode.left;
-                } else {
-                    if( !currentNode.right) {
-                        currentNode.right = currentNode;
-                        return this;
-                    }
-                    currentNode = currentNode.right;
-                }
+            return this;
+        }
 
+        let temp = this.root;
+        while (true) {
+            if (newNode.value === temp.value) {
+                return undefined
+            }
+            if (newNode.value < temp.value) {
+                if (!temp.left) {
+                    temp.left = newNode;
+                    return this
+                }
+                temp = temp.left
+            } else {
+                if (!temp.right) {
+                    temp.right = newNode;
+                    return this
+                }
+                temp = temp.right;
             }
         }
     }
 
-    lookUp(value) {
-        if( ! this.root) {
+    search(value){
+        if(this.root === null) {
             return false;
         }
-        let currentNode = this.root;
-        while(currentNode) {
-            if( value < currentNode.value) {
-                currentNode = currentNode.left;
-            } else if( value > currentNode.value) {
-                currentNode = currentNode.right;
-            } else if ( currentNode.value === value) {
-                return currentNode;
+        let temp = this.root;
+        while(temp) {
+            if(value < temp.left) {
+                temp = temp.left;
+            } else if(value > temp.right) {
+                temp = temp.right
+            } else {
+                return true;
             }
         }
         return false;
-    }
-
-    remove() {
-        if( ! this.root) {
-            return false;
-        }
-        let currentNode = this.root;
-        let parentNode = null;
-        
     }
 }

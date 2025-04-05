@@ -1,45 +1,34 @@
-class HashTables {
-
-    constructor(size) {
-        this.data = new Array(size);
+class HashTable {
+    constructor(size = 7) {
+        this.dataMap = new Array(size);
     }
 
-    // to make it private property add "_"
     _hash(key) {
         let hash = 0;
-        for(let i =0; i< key.length; i++) {
-            hash = (hash + key.charCodesAt(i)*i) % this.data.length;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i) * 23) % this.dataMap.length;
         }
-        return hash;
-    } // O(1)
+        return hash
+    }
 
     set(key, value) {
-        let address = this._hash(key);
-         if( ! this.data[address]) {
-            this.data[address] = [];
-         }
-         this.data[address].push([key, value]);
-    } // O(1)
+        const index = this._hash(key);
+        if (!this.dataMap[index]) {
+            this.dataMap[index] = [];
+        }
+        this.dataMap[index].psuh([key, value]);
+        return this;
+    }
 
     get(key) {
-        let address = this._hash(key);
-        const currentBucket = this.data[address];
-        if(currentBucket) {
-            for(let i =0; i < currentBucket.length; i++) {
-                if(currentBucket[i][0] === key) {
-                    return currentBucket[i][1];
+        let index = this._hash(key);
+        if (this.dataMap[index]) {
+            for (let i = 0; i < this.dataMap[index].length; i++) {
+                if (this.dataMap[index][0] === key) {
+                    return this.dataMap[index][1];
                 }
             }
         }
-    } // O(n)-- worts case
-
-    key() {
-        const keysArray = [];
-        for(let i = 0; i < this.data.length; i++) {
-            if(this.data[i]) {
-                keysArray.push(this.data[i][0][0])
-            }
-        }
-        return keysArray;
+        return undefined
     }
 }
