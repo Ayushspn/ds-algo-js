@@ -1,18 +1,16 @@
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
 }
-class Queue {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.length = 0;
-    }
 
-    peek() {
-        return this.first;
+class Queue {
+    constructor(value){
+        const newNode = new Node(value);
+        this.first = newNode;
+        this.last = newNode;
+        this.length = 1;
     }
 
     enqueue(value) {
@@ -25,18 +23,6 @@ class Queue {
             this.last = newNode;
         }
         this.length++
-    }
-
-    deque() {
-        if( ! this.first) {
-            return null;
-        }
-        if(this.first === this.last) {
-            this.last = null;
-        }
-        this.first = this.first.next;
-        this.length--;
         return this;
     }
-
 }
