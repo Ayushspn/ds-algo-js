@@ -29,3 +29,4 @@ function maxSubarraySum(array, k) {
 }
 
 console.log(maxSubarraySum([1, 2, 3, 4, 5], 2)); // Output: 9 (subarray: [4, 5])
+console.log(maxSubarraySum([2, 3, 4, 1, 5], 2)); // Output: 7 (subarray: [3, 4])
