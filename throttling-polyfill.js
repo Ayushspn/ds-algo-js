@@ -4,6 +4,6 @@ function myThrottle(fn, wait) {
     const now = Date.now();
     if (now - lastTime < wait) return;
     lastTime = now;
-    fn.apply(this, args);
+    return fn.apply(this, args);
   };
 }
