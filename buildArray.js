@@ -17,6 +17,16 @@ class MyArray {
   size() {
    return this.length;
   }
+
+  pop() {
+    if (this.length === 0) {
+      return undefined;
+    }
+    const item = this.data[this.length - 1];
+    delete this.data[this.length - 1];
+    this.length--;
+    return item;
+  }
 }
 
 const myArray = new MyArray();
